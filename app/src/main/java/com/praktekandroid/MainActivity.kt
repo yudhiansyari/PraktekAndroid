@@ -2,10 +2,8 @@ package com.praktekandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toast.makeText as makeText1
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textView1 = findViewById<TextView>(R.id.textView1)
+        val textView = findViewById<TextView>(R.id.textView)
 
-        textView1.setOnClickListener {
-           Toast.makeText(this, "hai",Toast.LENGTH_LONG).show()
-        })
+        textView.setOnClickListener {
+            Toast.makeText(this, "hai",Toast.LENGTH_LONG).show()
+        }
     }
 }
