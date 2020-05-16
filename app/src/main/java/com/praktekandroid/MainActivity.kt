@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.app.AlertDialog
+import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +30,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         button2.setOnClickListener{
-            val intent = Intent(this@MainActivity,GameActivity::class.java)
-            startActivity(intent)
+            var alert: AlertDialog.Builder = AlertDialog.Builder (this)
+            val editUser = EditText(this)
+            alert.setTitle("Username")
+            alert.setMessage("Hai")
+            alert.setView(editUser)
+
+            alert.setPositiveButton("Yes"){ dialog, which ->
+                var username = editUser.text.toString()
+                val intent = Intent(this@MainActivity,GameActivity::class.java)
+                intent.putExtra(GameActivity.EXTRA_USER, username )
+                startActivity(intent)
+            }
+            
+            alert.setNegativeButton("No"){ dialog, which ->
+            }
+
+            alert.show()
         }
     }
 }
